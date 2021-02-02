@@ -1,0 +1,16 @@
+{
+  "name": "apple_ceos_sql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:create": "createdb apple_ceos",
+    "db:destroy": "dropdb apple_ceos",
+    "db:init": "psql -f schema.sql apple_ceos",
+    "db:seed": "psql -f seed.sql apple_ceos"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
