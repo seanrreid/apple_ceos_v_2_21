@@ -2,15 +2,22 @@
   "name": "apple_ceos_sql",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "db:create": "createdb apple_ceos",
     "db:destroy": "dropdb apple_ceos",
     "db:init": "psql -f schema.sql apple_ceos",
-    "db:seed": "psql -f seed.sql apple_ceos"
+    "db:seed": "psql -f seed.sql apple_ceos",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-es6-template-engine": "^2.2.3",
+    "pg-promise": "^10.9.2"
+  }
 }
