@@ -45,9 +45,17 @@ router.post('/', async (req, res) => {
         strict: true
     });
 
-    const postData = await ceoModel.addEntry(ceo_name, slug, year);
-    console.log("post data response is: ", postData);
+    const response = await ceoModel.addEntry(ceo_name, slug, year);
+    console.log("post data response is: ", response);
     res.sendStatus(200);
 });
+
+router.post('/delete', async (req, res) => {
+    const { id, ceo_name, slug, year } = req.body;
+    const ceo = new ceoModel(id, ceo_name, slug, year);
+    const response = await ceo.deleteEntry();
+    console.log("delete response is: ", response);
+    res.sendStatus(200);
+})
 
 module.exports = router;

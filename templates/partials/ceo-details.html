@@ -1,2 +1,11 @@
 <h1>${executive.name}</h1>
-<p id="executiveParagraph">${executive.name} was CEO of Apple in ${executive.year}</p>
+<p id="executiveParagraph">
+    ${executive.name} was CEO of Apple in ${executive.year}
+</p>
+<form action="/ceos/delete" method="POST">
+    <input type="hidden" name="id" value="${executive.id}" />
+    <input type="hidden" name="ceo_name" value="${executive.name}" />
+    <input type="hidden" name="slug" value="${executive.slug}" />
+    <input type="hidden" name="year" value="${executive.year}" />
+    <button type="submit">Remove ${executive.name} from Database</button>
+</form>

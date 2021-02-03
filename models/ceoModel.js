@@ -1,7 +1,8 @@
 const db = require('./conn');
 
 class CEOModel {
-    constructor(name, slug, year) {
+    constructor(id, name, slug, year) {
+        this.id = id;
         this.name = name;
         this.slug = slug;
         this.year = year;
@@ -26,6 +27,16 @@ class CEOModel {
         } catch (error) {
             console.log("ERROR:", error.message)
             return error.message;
+        }
+    }
+
+    async deleteEntry() {
+        try {
+            const response = await db.result(`DELETE FROM apple_ceos WHERE id = $1`, [this.id]);
+            return response;
+        } catch (error) {
+             console.log('ERROR:', error.message);
+             return error.message;
         }
     }
 }
