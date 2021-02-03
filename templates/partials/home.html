@@ -1,3 +1,23 @@
 <h1>Hello!!</h1>
 <p>This is the homepage</p>
 <a href="/ceos">View list of CEOs</a>
+
+<form action="/ceos" method="POST">
+    <label>
+        New CEO Name
+        <input
+            type="text"
+            name="ceo_name"
+            placeholder="New CEO Name"
+        />
+    </label>
+    <label>
+        Starting Year
+        <input
+            type="number"
+            name="year"
+            placeholder="Starting Year"
+        />
+    </label>
+    <button type="submit">Add Entry</button>
+</form>

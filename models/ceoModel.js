@@ -16,6 +16,18 @@ class CEOModel {
         const response = await db.one(`SELECT * FROM apple_ceos WHERE slug = '${slug}';`);
         return response;
     }
+
+    static async addEntry(name, slug, year) {
+        try {
+            const response = await db.result(
+                `INSERT INTO apple_ceos (name, slug, year) VALUES ('${name}', '${slug}', ${year})`
+            );
+            return response;
+        } catch (error) {
+            console.log("ERROR:", error.message)
+            return error.message;
+        }
+    }
 }
 
 module.exports = CEOModel;

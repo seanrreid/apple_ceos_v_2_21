@@ -18,6 +18,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "express-es6-template-engine": "^2.2.3",
-    "pg-promise": "^10.9.2"
+    "pg-promise": "^10.9.2",
+    "slugify": "^1.4.6"
   }
 }

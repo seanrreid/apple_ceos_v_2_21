@@ -7,12 +7,14 @@ const HOSTNAME = '127.0.0.1',
 const express = require('express'),
     app = express();
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static('public'));
+
 const es6Renderer = require('express-es6-template-engine');
 app.engine('html', es6Renderer);
 app.set('views', 'templates');
 app.set('view engine', 'html');
-
-app.use(express.static('public'));
 
 const SERVER = HTTP.createServer(app);
 
