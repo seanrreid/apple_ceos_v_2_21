@@ -1,6 +1,10 @@
-const host = 'localhost',
-    database = 'apple_ceos',
-    user = 'postgres';
+require('dotenv').config();
+
+const host = process.env.DB_HOST,
+    database = process.env.DB_DATABASE,
+    user = process.env.DB_USER,
+    password = process.env.DB_PASSWORD;
+
 
 const pgp = require('pg-promise')({
     query: function (event) {
@@ -11,7 +15,8 @@ const pgp = require('pg-promise')({
 const options = {
     host,
     database,
-    user
+    user,
+    password
 }
 
 const db = pgp(options);
