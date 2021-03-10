@@ -4,6 +4,8 @@ const HTTP = require('http');
 const HOSTNAME = '127.0.0.1',
     PORT = 3333;
 
+const cors = require('cors');
+
 const express = require('express'),
     app = express();
 
@@ -11,6 +13,8 @@ const es6Renderer = require('express-es6-template-engine');
 app.engine('html', es6Renderer);
 app.set('views', 'templates');
 app.set('view engine', 'html');
+
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
